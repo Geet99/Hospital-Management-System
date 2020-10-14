@@ -5,6 +5,7 @@ var workHours = require("./staffJS/work_hours")
 
 const staffSchema = Schema(
     {
+        staffId: Number,
         name : String,
         dob : Date,
         age : Number,
