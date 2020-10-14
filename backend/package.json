@@ -1,0 +1,16 @@
+{
+  "name": "hms-backend",
+  "version": "1.0.0",
+  "description": "backend of the HMS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rhitayu",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0"
+  }
+}
