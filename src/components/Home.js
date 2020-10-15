@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
 import { Form, Input, Button, Checkbox } from 'antd';
+import Admin from './Admin'
 
 const layout = {
     labelCol: {
