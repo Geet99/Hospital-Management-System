@@ -32,13 +32,13 @@ class InventoryDetails extends React.Component {
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              Number of Covid Beds:{this.state.inventarray.numberOfCovidBeds}
+              Number of Covid Beds:{" "}{this.state.inventarray.numberOfCovidBeds}
             </span>
           </Col>
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              Number of Covid Occupied:
+              Number of Covid Occupied:{" "}
               {this.state.inventarray.numberOfCovidBedsOccupied}
             </span>
           </Col>
@@ -47,7 +47,7 @@ class InventoryDetails extends React.Component {
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              Number of ICU Beds:{this.state.inventarray.numberOfICUBeds}
+              Number of ICU Beds:{" "}{this.state.inventarray.numberOfICUBeds}
             </span>
           </Col>
         </Row>
@@ -64,7 +64,7 @@ class InventoryDetails extends React.Component {
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              Number of Non-Covid Beds:
+              Number of Non-Covid Beds:{" "}
               {this.state.inventarray.numberOfNonCovidBeds}
             </span>
           </Col>

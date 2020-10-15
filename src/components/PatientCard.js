@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
 function PatientCard({ data }) {
   return (
     <Container

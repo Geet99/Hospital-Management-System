@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import '../index.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import Admin from './Admin'
+import history from '../history';
 
 const layout = {
     labelCol: {
@@ -82,14 +83,14 @@ class Home extends Component{
                     </Form.Item>
 
                     <Form.Item {...tailLayout}>
-                        <Button type="primary" m-2 htmlType="submit">
-                        Patient Login
+                        <Button href='/Patient' type="primary" m-2 htmlType="submit">
+                            Patient Login
                         </Button> {' '}
-                        <Button type="primary" m-2 htmlType="submit">
-                        Staff Login
+                        <Button href='/Staff' type="primary" m-2 htmlType="submit">
+                            Staff Login
                         </Button> {' '}
-                        <Button type="primary" m-2 htmlType="submit">
-                        Admin Login
+                        <Button href='/Admin' type="primary" m-2 htmlType="submit">
+                            Admin Login
                         </Button>
                     </Form.Item>
                 </Form>
@@ -100,10 +101,10 @@ class Home extends Component{
                 <Form>
                     <Form.Item {...tailLayout}>
                         <Button type="primary" m-2 htmlType="submit">
-                        Patient SignUp
+                            Patient SignUp
                         </Button> {' '}
                         <Button type="primary" m-2 htmlType="submit">
-                        Staff SignUp
+                            Staff SignUp
                         </Button>
                     </Form.Item>
                 </Form>
