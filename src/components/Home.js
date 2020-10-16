@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
+import styles from '../App.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import Admin from './Admin'
 import history from '../history';
@@ -39,9 +40,9 @@ class Home extends Component{
 
     render(){
         return(
-            <div>
+            <div className={styles.body}>
                 <br /> <br />
-                <h1> Welcome! </h1>
+                <h1 className={styles.body}> Welcome! </h1>
                 <br /> <br />
                 <Form
                     {...layout}

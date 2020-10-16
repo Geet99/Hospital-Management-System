@@ -50,6 +50,8 @@ import Staff from './components/Staff';
 import Admin from './components/Admin'
 import StaffSignUp from './components/StaffSignUp'
 import PatientSignUp from './components/PatientSignUp'
+import About from './components/About'
+import Charity from './components/Charity'
 // import Routes from './Routes';
 // import PatientLogin from './components/patientLogin'
 
@@ -65,6 +67,8 @@ function App() {
           <Route path="/Staff" component={Staff} />
           <Route path="/StaffSignUp" component={StaffSignUp} />
           <Route path="/PatientSignUp" component={PatientSignUp} />
+          <Route path="/About" component={About} />
+          <Route path="/Charity" component={Charity} />
         </Switch>
         {/* <div className="App">
           <Patient />
