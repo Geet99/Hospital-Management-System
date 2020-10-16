@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<% if(act=="add"){ %>
+    <form action="/inventory/add" method="POST">
+        <h1>Adding Items</h1>
+        <label>Items:</label>
+        <select name="item" required>
+            <option value="none" selected disabled hidden> 
+                Select a item
+            </option> 
+            <option value="gloves"> Gloves</option>
+            <option value="testingkit"> Testing kits</option>
+            <option value="syringes"> Syringes</option>
+            <option value="salinebottles"> Saline Bottles</option>
+            <option value="masks"> Masks</option>
+            <option value="ppekits"> PPE Kits</option>
+        </select>
+        <input type="number" name="value" required>
+        <button type="submit" >Add Item</button>
+    </form>
+<% }else{ %>
+    <form action="/inventory/remove" method="POST">
+        <h1>Removing Items</h1>
+        <label>Items:</label>
+        <select name="item" required>
+            <option value="none" selected disabled hidden> 
+                Select a item
+            </option> 
+            <option value="gloves"> Gloves</option>
+            <option value="testingkit"> Testing kits</option>
+            <option value="syringes"> Syringes</option>
+            <option value="salinebottles"> Saline Bottles</option>
+            <option value="masks"> Masks</option>
+            <option value="ppekits"> PPE Kits</option>
+        </select>
+        <input type="number" name="value" required>
+        <button type="submit" >Delete Item</button>
+    </form>
+<% } %>
+
+<%- include("partials/footer") %>

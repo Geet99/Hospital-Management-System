@@ -1,0 +1,64 @@
+<%- include("partials/header") %>
+
+<div>
+    <div >
+        Welcome to  Sign up
+    </div>
+</div>
+<div>
+    <form action="/signup/staff" method="POST">
+        <div>
+            <label for="name"> Name : </label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+        </div>
+        <div>
+            <label for="username"> Username :</label>
+            <input type="email" name="username" placeholder="Enter your email" required>
+        </div>
+        <div>
+            <label for="password"> Password :</label>
+            <input type="password" name="password" minlength="8" placeholder="Should be atleast 8 characters" required>
+        </div>
+        <!-- ----------------------------------------------- -->
+        <div>
+            <label for="dob"> DOB :</label>
+            <input type="text" name="dob" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="age">  Age:</label>
+            <input type="text" name="age" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="gender">  Gender:</label>
+            <input type="text" name="gender" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="address">  Address:</label>
+            <input type="text" name="address" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="mobile">  Phone No:</label>
+            <input type="text" name="mobile" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="joinedon">  Joined on:</label>
+            <input type="text" name="joinedon" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="role">  Role:</label>
+            <input type="text" name="role" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="department">  Department:</label>
+            <input type="text" name="department" placeholder="Enter string" required>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <div>
+        Already a user?<a href="/login"><button>Login</button></a>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

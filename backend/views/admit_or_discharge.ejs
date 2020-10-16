@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<% if(type=="discharge"){ %>
+    <form action="/patient/<%= patient._id%>/discharge" method="POST">
+        <h1>Discharge</h1>
+        <label>Date:</label>
+            <input type="text" name="date" required>
+        <button type="submit" >Submit</button>
+    </form>
+<% }else{ %>
+    <form action="/patient/<%= patient._id%>/admit" method="POST">
+        <h1>Admit</h1>
+        <label>Enter admit date</label>
+            <input type="text" name="date" required>
+        <label>Treated by Which Doctor</label>
+            <input type="text" name="doctor" required>
+        <label>Is patient corona positive?</label>
+        <select name="corona" required>
+            <option value="none" selected disabled hidden> 
+                select
+            </option> 
+            <option value="true"> true</option>
+            <option value="false"> false</option>
+        </select>
+        <button type="submit" >Submit</button>
+    </form>
+<% } %>
+
+<%- include("partials/footer") %>

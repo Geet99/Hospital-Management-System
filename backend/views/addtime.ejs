@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<% if(time=="intime"){ %>
+    <form action="/staff/<%= id%>/addintime" method="POST">
+        <h1>In time</h1>
+        <label>Date:</label>
+            <input type="text" name="date" required>
+        <label>Time you entered</label>
+            <input type="text" name="intime" required>
+        <button type="submit" >Submit</button>
+    </form>
+<% }else if(time=="outtime"){ %>
+    <form action="/staff/<%= id%>/addouttime" method="POST">
+        <h1>Out time</h1>
+        <label>Date:</label>
+            <input type="text" name="date" required>
+        <label>Time you exited</label>
+            <input type="text" name="outtime" required>
+        <button type="submit" >Submit</button>
+    </form>
+<% }else{ %>
+    <form action="/staff/<%= id%>/relieve" method="POST">
+        <h1>Relive</h1>
+        <label>Enter relieve date</label>
+            <input type="text" name="relieve" required>
+        <button type="submit" >Submit</button>
+    </form>
+<% } %>
+
+<%- include("partials/footer") %>

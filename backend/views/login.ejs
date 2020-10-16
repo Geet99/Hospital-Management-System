@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+<form action="/login" method="POST">
+    <div >
+        <label for="username"> Username :</label>
+        <input type="email" name="username" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+        <label for="password"> Password :</label>
+        <input type="password" name="password" required>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
+</form>
+<div>
+    New User?<a href="/signup/patients"><button style="width: 100px;">Register</button></a>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+<% if(staff.isStaff){ %>
+    <%= staff.forStaff.name %>
+    <%= staff.forStaff.dob %>
+    <%= staff.forStaff.age %>
+    <%= staff.forStaff.phone %>
+    <%= staff.forStaff.joinedOn %>
+    <%= staff.forStaff.relievedOn %>
+    <%= staff.forStaff.role %>
+    <%= staff.forStaff.department %>
+<% } %>
+
+<a href="/staff/<%= id %>/addintime">add intime</a>
+<a href="/staff/<%= id %>/addouttime">add outtime</a>
+<a href="/staff/<%= id %>/relieve">add relieve</a>
+
+<%- include("partials/footer") %>

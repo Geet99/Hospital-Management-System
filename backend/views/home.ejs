@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<% if(patient.isPatient){ %>
+    <%= patient.forPatient.name %>
+    <%= patient.forPatient.dob %>
+    <%= patient.forPatient.age %>
+    <%= patient.forPatient.phone %>
+    <%= patient.forPatient.emergencycontact.name %>
+    <%= patient.forPatient.emergencycontact.phone %>
+    <%= patient.forPatient.allergies %>
+<% } %>
+
+<a href="/patient/:id/addtreatment">add treatment</a>
+<a href="/patient/:id/addtest">add test</a>
+
+<%- include("partials/footer") %>

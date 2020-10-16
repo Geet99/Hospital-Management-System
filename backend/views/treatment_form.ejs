@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<div>
+    <div >
+        Welcome to  Sign up
+    </div>
+</div>
+<div>
+    <form action="/patient/<%=id%>/addtreatment" method="POST">
+        <div>
+            <label for="date"> Today's date : </label>
+            <input type="text" name="date" placeholder="Enter your name" required>
+        </div>
+        <div>
+            <label for="symptoms"> Patient's symptoms today :</label>
+            <input type="text" name="symptoms" placeholder="Enter your email" required>
+        </div>
+        <!-- ----------------------------------------------- -->
+        <div>
+            <label for="medicinename"> Medicine givem= :</label>
+            <input type="text" name="medicinename" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="time"> Time at which medicine is given :</label>
+            <input type="text" name="time" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="dosage">  Dosage of medicine given to patient :</label>
+            <input type="text" name="dosage" placeholder="Enter string" required>
+        </div>
+        <div>
+            <label for="givenby">  Medicine is given by whom :</label>
+            <input type="text" name="givenby" placeholder="Enter string" required>
+        </div>
+        <div>
+            <button type="submit">Add the treatment</button>
+        </div>
+    </form>
+</div>
+
+<%- include("partials/footer") %>
