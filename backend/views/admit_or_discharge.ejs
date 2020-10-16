@@ -5,6 +5,15 @@
         <h1>Discharge</h1>
         <label>Date:</label>
             <input type="text" name="date" required>
+            <label>Bed occupied by patient:</label>
+            <select name="bed" required>
+                <option value="none" selected disabled hidden> 
+                    select
+                </option> 
+                <option value="covid"> covid</option>
+                <option value="noncovid"> noncovid</option>
+                <option value="icu"> icu</option>
+            </select>
         <button type="submit" >Submit</button>
     </form>
 <% }else{ %>
@@ -21,6 +30,15 @@
             </option> 
             <option value="true"> true</option>
             <option value="false"> false</option>
+        </select>
+        <label>Type of bed</label>
+        <select name="bed" required>
+            <option value="none" selected disabled hidden> 
+                select
+            </option> 
+            <option value="covid"> covid</option>
+            <option value="noncovid"> noncovid</option>
+            <option value="icu"> icu</option>
         </select>
         <button type="submit" >Submit</button>
     </form>

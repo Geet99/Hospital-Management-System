@@ -209,8 +209,41 @@ app.post("/patient/:id/discharge", function(req,res){
     User.findByIdAndUpdate(req.params.id, {"forPatient.treatment.dischargedate" : req.body.date}, function(err, updtaedPatient){
         if(err)
             res.redirect("/api/patient/"+ req.params.id)
-        else
-            res.redirect("/api/patient/"+ req.params.id)
+        else{
+            Bed.find({},function(err,items){
+                if(err){
+                    res.send("something wrong");
+                }else{
+                    if(req.body.bed=="covid"){
+                        Bed.findOneAndUpdate({} ,{ "occupied.covid" : items[0].occupied.covid-1, "available.covid" : items[0].available.covid+1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }else if(req.body.bed=="noncovid"){
+                        Bed.findOneAndUpdate({} ,{ "occupied.noncovid" : items[0].occupied.noncovid-1, "available.noncovid" : items[0].available.noncovid+1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }
+                    else{
+                        Bed.findOneAndUpdate({} ,{ "occupied.icu" : items[0].occupied.icu-1, "available.covid" : items[0].available.icu+1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }
+                }
+            })
+            res.redirect("/api/patient/"+req.params.id);
+        }
     })
 })
 
@@ -224,11 +257,44 @@ app.get("/patient/:id/admit", function(req,res){
 })
 
 app.post("/patient/:id/admit", function(req,res){
-    User.findByIdAndUpdate(req.params.id, {"forPatient.treatment.admitdate" : req.body.date , "forPatient.treatment.treatedby" : req.body.doctor , "forPatient.treatment.covidpositive" : req.body.corona}, function(err, updtaedPatient){
+    User.findByIdAndUpdate(req.params.id, {"forPatient.treatment.admitdate" : req.body.date , "forPatient.treatment.treatedby" : req.body.doctor , "forPatient.treatment.covidpositive" : req.body.corona}, function(err, updatedPatient){
         if(err)
             res.redirect("/api/patient/"+ req.params.id)
-        else
-            res.redirect("/api/patient/"+ req.params.id)
+        else{
+            Bed.find({},function(err,items){
+                if(err){
+                    res.send("something wrong");
+                }else{
+                    if(req.body.bed=="covid"){
+                        Bed.findOneAndUpdate({} ,{ "occupied.covid" : items[0].occupied.covid+1, "available.covid" : items[0].available.covid-1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }else if(req.body.bed=="noncovid"){
+                        Bed.findOneAndUpdate({} ,{ "occupied.noncovid" : items[0].occupied.noncovid+1, "available.noncovid" : items[0].available.noncovid-1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }
+                    else{
+                        Bed.findOneAndUpdate({} ,{ "occupied.icu" : items[0].occupied.icu+1, "available.covid" : items[0].available.icu-1},function(err,result){
+                            if(err){
+                                console.log(err)
+                            }else{
+                                console.log("success")
+                            }
+                        })
+                    }
+                }
+            })
+            res.redirect("/api/patient/"+req.params.id);
+        }
     })
 })
 
