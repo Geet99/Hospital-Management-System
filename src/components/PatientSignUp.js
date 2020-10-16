@@ -1,7 +1,9 @@
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button } from "antd";
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
+import axios from 'axios';
+import styled from 'styled-components';
 
 const layout = {
     labelCol: {
@@ -16,9 +18,22 @@ const tailLayout = {
     wrapperCol: {
       offset: 8,
       span: 8,
+      align: "center"
     },
 };
-  
+
+const WelcomeText = styled.h2`
+  text-align: center;
+`;
+
+const LegendText = styled.legend`
+  text-align: center;
+`;
+
+const NoAccount = styled.h6`
+text-align: center
+`;
+
 //   const Demo = () => {
     const onFinish = (values) => {
       console.log('Success:', values);
@@ -30,15 +45,52 @@ const tailLayout = {
 // }
 
 class PatientSignUp extends Component{
-    // constructor(props){
-    //     super(props);
-    // }
+    constructor(props){
+        super(props);
+
+        this.state = {
+            name: '',
+            username: '',
+            password: '',
+            dob: '',
+            age: '',
+            gender: '',
+            address: '',
+            mobile: '',
+            blood: '',
+            weight: '',
+            insuranceno: '',
+            emergencyname: '',
+            emergencynumber: '',
+            allergy: '',
+            patienthistory: '',
+        }
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = e => {
+        e.preventDefault();
+        console.log(this.state)
+        axios.post('http://localhost:5000/signup/patients', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render(){
+        const { name, username, password, dob, age, gender, address, mobile, blood, weight, insurance, emergencyname, emergencynumber, allergy, patienthistory } = this.state
         return(
             <div>
-                <h2> Patient Sign Up </h2>
-                <legend>Enter Your Details</legend>
-                <br /><br />
+                <br />
+                <WelcomeText> Patient Sign Up </WelcomeText>
+                <LegendText>Enter Your Details</LegendText>
+                <br />
                 <Form
                     {...layout}
                     name="basic"
@@ -48,7 +100,7 @@ class PatientSignUp extends Component{
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >    
-                    <form action="/signup/patients" method="POST">
+                    <form onSubmit={this.submitHandler} action="/signup/patients" method="POST">
                         <div>
                             <Form.Item
                             label="Name"
@@ -63,7 +115,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="name"
+                                    value={name}
                                     placeholder="Enter your name"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -82,7 +136,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="email"
                                     name="username"
+                                    value={username}
                                     placeholder="Enter your email"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -101,8 +157,10 @@ class PatientSignUp extends Component{
                                 <Input.Password
                                     type="password"
                                     name="password"
+                                    value={password}
                                     minlength="8"
                                     placeholder="Should be atleast 8 characters"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -121,7 +179,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="dob"
+                                    value={dob}
                                     placeholder="Enter in DD.MM.YYY format"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -140,7 +200,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="age"
+                                    value={age}
                                     placeholder="Enter your age"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -159,7 +221,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="gender"
+                                    value={gender}
                                     placeholder="Enter your gender"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -178,7 +242,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="address"
+                                    value={address}
                                     placeholder="Enter your address"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -197,7 +263,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="mobile"
+                                    value={mobile}
                                     placeholder="Enter your phone number"
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -216,7 +284,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="blood"
+                                    value={blood}
                                     placeholder="Enter your blood group."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -254,7 +324,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="weight"
+                                    value={weight}
                                     placeholder="Enter your weight."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -262,7 +334,7 @@ class PatientSignUp extends Component{
                         <div>
                             <Form.Item
                             label="Insurance Number"
-                            name="insuranceno"
+                            name="insurance"
                             type="text"
                             rules={[
                             {
@@ -272,8 +344,10 @@ class PatientSignUp extends Component{
                             ]}>
                                 <Input
                                     type="text"
-                                    name="insuranceno"
+                                    name="insurance"
+                                    value={insurance}
                                     placeholder="Enter your insurance number."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -292,7 +366,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="emergencyname"
+                                    value={emergencyname}
                                     placeholder="Enter your emergency contact name."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -311,7 +387,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="emergencynumber"
+                                    value={emergencynumber}
                                     placeholder="Enter your emergency contact number."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -330,7 +408,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="allergy"
+                                    value={allergy}
                                     placeholder="Enter your allergies, separated by commas."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -349,7 +429,9 @@ class PatientSignUp extends Component{
                                 <Input
                                     type="text"
                                     name="patienthistory"
+                                    value={patienthistory}
                                     placeholder="Enter your medical history, separated by commas."
+                                    onChange={this.changeHandler}
                                     required
                                 />
                             </Form.Item>
@@ -363,7 +445,7 @@ class PatientSignUp extends Component{
                 </div>
             </form>
             <div>
-               <h6> Already a user? </h6>
+               <NoAccount> Already a user? </NoAccount>
 
                 <Form.Item {...tailLayout}>
                         <Button href='/' type="primary" m-2 htmlType="submit">

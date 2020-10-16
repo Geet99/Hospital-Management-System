@@ -3,7 +3,6 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { NavigationBar } from './components/Nav';
-// import { BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Patient from './components/Patient';
 import Staff from './components/Staff';
@@ -12,8 +11,6 @@ import StaffSignUp from './components/StaffSignUp'
 import PatientSignUp from './components/PatientSignUp'
 import About from './components/About'
 import Charity from './components/Charity'
-// import Routes from './Routes';
-// import PatientLogin from './components/patientLogin'
 
 function App() {
   return (

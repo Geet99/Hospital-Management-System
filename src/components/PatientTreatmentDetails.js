@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PatientCard from "./StaffPatientCard";
-// import Buttons from "./Buttons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Search from "./Search";
 import { Tabs } from "antd";

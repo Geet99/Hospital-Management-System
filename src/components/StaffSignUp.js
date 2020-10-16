@@ -1,7 +1,8 @@
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button } from "antd";
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
+import styled from 'styled-components';
 
 const layout = {
     labelCol: {
@@ -16,9 +17,21 @@ const tailLayout = {
     wrapperCol: {
       offset: 8,
       span: 8,
+      align: "center"
     },
 };
   
+const WelcomeText = styled.h2`
+  text-align: center;
+`;
+
+const LegendText = styled.legend`
+  text-align: center;
+`;
+
+const NoAccount = styled.h6`
+text-align: center
+`;
 //   const Demo = () => {
     const onFinish = (values) => {
       console.log('Success:', values);
@@ -38,9 +51,10 @@ class StaffSignUp extends Component{
 
         return(
             <div>
-                <h2> Staff Sign Up </h2>
-                <legend>Enter Your Details</legend>
-                <br /><br />
+                <br />
+                <WelcomeText> Staff Sign Up </WelcomeText>
+                <LegendText>Enter Your Details</LegendText>
+                <br />
                 <Form
                     {...layout}
                     name="basic"
@@ -270,7 +284,7 @@ class StaffSignUp extends Component{
                 </div>
             </form>
             <div>
-               <h6> Already a user? </h6>
+               <NoAccount> Already a user? </NoAccount>
 
                 <Form.Item {...tailLayout}>
                         <Button href='/' type="primary" m-2 htmlType="submit">

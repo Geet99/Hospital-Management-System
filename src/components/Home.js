@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
-import styles from '../App.css';
 import { Form, Input, Button, Checkbox } from 'antd';
-import Admin from './Admin'
-import history from '../history';
+import axios from 'axios';
+import styled from 'styled-components';
 
 const layout = {
     labelCol: {
@@ -19,9 +18,18 @@ const tailLayout = {
     wrapperCol: {
       offset: 8,
       span: 8,
+      align: "center"
     },
 };
-  
+
+const WelcomeText = styled.h1`
+  text-align: center;
+`;
+
+const NoAccount = styled.h6`
+text-align: center
+`;
+
 //   const Demo = () => {
     const onFinish = (values) => {
       console.log('Success:', values);
@@ -34,15 +42,37 @@ const tailLayout = {
 
 class Home extends Component{
 
-    // constructor(props){
-    //     super(props);
-    // }
+    constructor(props){
+        super(props);
+
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = e => {
+        e.preventDefault();
+        console.log(this.state)
+        axios.post('http://localhost:5000/login', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     render(){
+        const { username, password } = this.state
         return(
-            <div className={styles.body}>
+            <div className>
                 <br /> <br />
-                <h1 className={styles.body}> Welcome! </h1>
+                <WelcomeText> Welcome! </WelcomeText>
                 <br /> <br />
                 <Form
                     {...layout}
@@ -53,7 +83,7 @@ class Home extends Component{
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >
-                    <form action="localhost:5000/signup/staff" method="POST">
+                    <form onSubmit={this.submitHandler} action="localhost:5000/signup/staff" method="POST">
                     <Form.Item
                         label="Username"
                         name="username"
@@ -64,7 +94,12 @@ class Home extends Component{
                         },
                         ]}
                     >
-                        <Input />
+                        <Input
+                            name="username"
+                            value={username}
+                            placeholder="Enter your email."
+                            onChange={this.changeHandler} 
+                        />
                     </Form.Item>
 
                     <Form.Item
@@ -77,7 +112,12 @@ class Home extends Component{
                         },
                         ]}
                     >
-                        <Input.Password />
+                        <Input.Password 
+                            name="password"
+                            value={password}
+                            placeholder="Enter an 8-digit password."
+                            onChange={this.changeHandler}
+                        />
                     </Form.Item>
                     </form>
 
@@ -99,7 +139,7 @@ class Home extends Component{
                 </Form>
                 <br /> <br />
 
-                <h6> Don't have an account? </h6>
+                <NoAccount> Don't have an account? </NoAccount>
                 <br />
                 <Form>
                     <Form.Item {...tailLayout}>

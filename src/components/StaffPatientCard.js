@@ -30,8 +30,7 @@ function StaffPatientCard({ data }) {
                 </Col>
             </Row>
             <br />
-            { //edit here}
-                // return (
+            {/*
                     (data.admitno == null) ? //edit here
                     (
                         <Button href='/Patient' type="primary" m-2 htmlType="submit">
@@ -47,14 +46,13 @@ function StaffPatientCard({ data }) {
                         </Button>
                         </div>
                     )	
-                // )
-            }
-            {/* <Button href='/Patient' type="primary" m-2 htmlType="submit">
+            } */}
+            <Button href='/Patient' type="primary" m-2 htmlType="submit">
                 Add Treatment
             </Button> {' '}
             <Button href='/Staff' type="primary" m-2 htmlType="submit">
                 Discharge Patient
-            </Button> */}
+            </Button>
         </Container>
     );
 }

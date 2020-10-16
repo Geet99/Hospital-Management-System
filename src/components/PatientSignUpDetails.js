@@ -3,9 +3,6 @@ import "antd/dist/antd.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 class PatientSignUpDetails extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
     return (
