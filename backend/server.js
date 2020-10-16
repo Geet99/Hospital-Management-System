@@ -615,6 +615,34 @@ app.get("/inventory", function(req,res){
     })
 })
 
+// Patients display
+app.get("/api/allpatients", function(req,res){
+    var covidpatients = [];
+    var noncovidpatients = [];
+    User.find({}, function(err, users){
+        if(err)
+            res.send(err);
+        else{
+            users.forEach(function(patient){
+                if(patient.isPatient){
+                    if(patient.forPatient.treatment.covidpositive=="true"){
+                        covidpatients.push(patient);
+                    }
+                    else{
+                        noncovidpatients.push(patient);
+                    }
+                }
+                // covidpatients.push(patient);
+            })
+            var patients = {
+                covidpatients,
+                noncovidpatients
+            }
+            res.send(patients);
+        }
+    })
+})
+
 // Logout Route
 app.get("/logout" , function(req,res){
     req.logout();
