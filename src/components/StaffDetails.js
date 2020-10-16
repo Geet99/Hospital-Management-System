@@ -32,8 +32,92 @@ class StaffDetails extends React.Component {
         department: "Dermatology",
         staffrole: "",
         workHours: ""
+      },
+      {
+        id: 2,
+        name: "Arnav Sahni",
+        role: "Doctor",
+        dob: "12.02.1980",
+        age: "40",
+        gender: "Male",
+        address: "XYZ",
+        joinedOn: "1.01.2007",
+        isAdmin: "False",
+        department: "Dermatology",
+        staffrole: "",
+        workHours: ""
+      },
+      {
+        id: 2,
+        name: "Manju Das",
+        role: "Doctor",
+        dob: "12.02.1980",
+        age: "40",
+        gender: "Male",
+        address: "XYZ",
+        joinedOn: "1.01.2007",
+        isAdmin: "False",
+        department: "Dermatology",
+        staffrole: "",
+        workHours: ""
+      },
+      {
+        id: 2,
+        name: "Neena Saini",
+        role: "Nurse",
+        dob: "12.02.1980",
+        age: "40",
+        gender: "Male",
+        address: "XYZ",
+        joinedOn: "1.01.2007",
+        isAdmin: "False",
+        department: "Dermatology",
+        staffrole: "",
+        workHours: ""
+      },
+      {
+        id: 2,
+        name: "Narav Modi",
+        role: "Doctor",
+        dob: "12.02.1980",
+        age: "40",
+        gender: "Male",
+        address: "XYZ",
+        joinedOn: "1.01.2007",
+        isAdmin: "False",
+        department: "Dermatology",
+        staffrole: "",
+        workHours: ""
+      },
+      {
+        id: 2,
+        name: "Geeta Kumar",
+        role: "Nurse",
+        dob: "12.02.1980",
+        age: "40",
+        gender: "Male",
+        address: "XYZ",
+        joinedOn: "1.01.2007",
+        isAdmin: "False",
+        department: "Dermatology",
+        staffrole: "",
+        workHours: ""
       }
     ]
+
+    //   let url = 'https://';
+    //   try {
+    //     const response = await fetch(url, {
+    //       method: 'POST',
+    //       body: JSON.stringify({ accountId: awsAccountId }),
+    //       credentials: 'same-origin',
+    //       headers: {
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Credentials': ''
+    //       }
+    //     });
+    //     const json = await response.json();
   };
 
   // staffRole: [

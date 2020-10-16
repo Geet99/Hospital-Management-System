@@ -100,10 +100,10 @@ class Home extends Component{
                 <br />
                 <Form>
                     <Form.Item {...tailLayout}>
-                        <Button type="primary" m-2 htmlType="submit">
+                        <Button href='/PatientSignUp' type="primary" m-2 htmlType="submit">
                             Patient SignUp
                         </Button> {' '}
-                        <Button type="primary" m-2 htmlType="submit">
+                        <Button href='/StaffSignUp' type="primary" m-2 htmlType="submit">
                             Staff SignUp
                         </Button>
                     </Form.Item>

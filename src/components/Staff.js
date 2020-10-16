@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 // import "./index.css";
 // import { Menu } from "antd";
 import StaffSignUpDetails from "./StaffSignUpDetails";
+import StaffInventoryDetails from "./StaffInventoryDetails";
 import PatientTreatmentDetails from "./PatientTreatmentDetails";
 // import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tabs } from "antd"
@@ -21,6 +22,10 @@ class Staff extends React.Component {
 
         <TabPane tab="Patients' Treatment Details" key="2">
           <PatientTreatmentDetails />
+        </TabPane>
+
+        <TabPane tab="Inventory Details" key="3">
+          <StaffInventoryDetails />
         </TabPane>
       </Tabs>
     );

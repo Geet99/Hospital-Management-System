@@ -5,18 +5,18 @@ import { Container, Row, Col } from "react-bootstrap";
 class PatientSignUpDetails extends React.Component {
   state = {
     patientarray: {
-        name : "cvv",
-        dob : "gbbhnj",
-        age : "gbgggggg",
-        gender : "gthtj",
-        bloodgroup : "bhnhg",
+        name : "Ravi Prakash",
+        dob : "22.08.1999",
+        age : "34",
+        gender : "Male",
+        bloodgroup : "B+",
         phone : 1234567890,
-        weight : 45,
-        insuranceno : "gbg",
-        emergencycontactname : "vv",
-        emergencycontactphone : 344666788,
-        allergies : "yhht",
-        history : "grb",
+        weight : 65,
+        insuranceno : "23453245",
+        emergencycontactname : "Rajeev Prakash",
+        emergencycontactphone : 3446667488,
+        allergies : "Penicilin",
+        history : "Heart By-pass surgery in 2015",
     }
   };
 

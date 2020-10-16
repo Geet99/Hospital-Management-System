@@ -7,7 +7,7 @@ import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
-function PatientTreatmentDetails() {
+function PatientDetails() {
   const [hospitalData, setHospitalData] = useState([]);
   const [searchText, setSearchText] = useState("");
   var xx;
@@ -58,19 +58,64 @@ function fetchHospitals(searchText, setHospitalData) {
       id: 1,
       name: "Kamal Hasan",
       roomno: "403",
-      covidstatus: "negative"
+      covidstatus: "negative",
+      admitno: ""
     },
     {
       id: 2,
       name: "Joy Singh",
-      roomno: "402",
-      covidstatus: "positive"
+      roomno: "502",
+      covidstatus: "positive",
+      admitno: "4534"
+    },
+    {
+      id: 1,
+      name: "Farukh Ahmed",
+      roomno: "503",
+      covidstatus: "negative",
+      admitno: ""
+    },
+    {
+      id: 2,
+      name: "Shamsher Kumar",
+      roomno: "102",
+      covidstatus: "positive",
+      admitno: ""
+    },
+    {
+      id: 1,
+      name: "Komal Sangtani",
+      roomno: "413",
+      covidstatus: "negative",
+      admitno: "efefe"
+    },
+    {
+      id: 2,
+      name: "Rimpy Bhasin",
+      roomno: "412",
+      covidstatus: "positive",
+      admitno: "efefe"
     }
   ];
+
+  //   let url = 'https://';
+  //   try {
+  //     const response = await fetch(url, {
+  //       method: 'POST',
+  //       body: JSON.stringify({ accountId: awsAccountId }),
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         Accept: 'application/json',
+  //         'Content-Type': 'application/json',
+  //         'Access-Control-Allow-Credentials': ''
+  //       }
+  //     });
+  //     const json = await response.json();
+
   setHospitalData(
     array.filter(
       (x) => searchText === "" || x.roomno.indexOf(searchText) !== -1
     )
   );
 }
-export default PatientTreatmentDetails;
+export default PatientDetails;
