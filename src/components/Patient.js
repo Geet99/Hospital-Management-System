@@ -16,7 +16,8 @@ class Patient extends React.Component {
     super();
     this.state = {
       patient_details : {},
-      id : null
+      id : null,
+      emergency : {}
     }
   }
 
@@ -25,7 +26,7 @@ class Patient extends React.Component {
     .then(response => response.json())
     .then(response => {
       const {data} = response;
-      this.setState({patient_details : response.forPatient , id : response._id})
+      this.setState({patient_details : response.forPatient , id : response._id, emergency : response.forPatient.emergencycontact})
     })
   }
 
@@ -34,7 +35,7 @@ class Patient extends React.Component {
     return (
       <Tabs style={{ marginLeft: "4%" }} defaultActiveKey="1">
         <TabPane tab="Patient Details" key="1">
-          {console.log(this.state.patient_details["emergencycontact"])}
+          {/* {console.log(this.state.emergency.name)} */}
           <PatientSignUpDetails 
             name = {this.state.patient_details.name}
             dob = {this.state.patient_details.dob}
@@ -47,8 +48,8 @@ class Patient extends React.Component {
             allergies = {this.state.patient_details.allergies}
             history = {this.state.patient_details.history}
             emer = {this.state.patient_details.emergencycontact}
-            // emername = {this.state.patient_details.emergencycontact.name}
-            // emernum = {this.state.patient_details.emergencycontact.phone}
+            emername = {this.state.emergency.name}
+            emernum = {this.state.emergency.phone}
           />
         </TabPane>
 

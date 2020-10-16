@@ -4,44 +4,30 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Select } from "antd";
 
 class InventoryDetails extends React.Component {
-  state = {
-    //access from Inventory Schema
-    inventoryarray: {
-      gloves: 10,
-      testingkit: 10,
-      syringes: 10,
-      salinebottles: 10,
-      masks: 10,
-      ppekits: 10
-    },
-    //access from Beds Schema
-    beds: {
-      occupied: {
-        covid: 10,
-        icu: 2,
-        noncovid: 3
-      },
-      available: {
-        covid: 10,
-        icu: 2,
-        noncovid: 3
-      }
+  constructor(){
+    super();
+    this.state = {
+      items : {},
+      bedsoccupy : {},
+      bedsavai : {},
     }
+  }
 
-    //   let url = 'https://';
-    //   try {
-    //     const response = await fetch(url, {
-    //       method: 'POST',
-    //       body: JSON.stringify({ accountId: awsAccountId }),
-    //       credentials: 'same-origin',
-    //       headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //         'Access-Control-Allow-Credentials': ''
-    //       }
-    //     });
-    //     const json = await response.json();
-  };
+  componentDidMount(){
+    fetch("/api/inventory")
+    .then(response => response.json())
+    .then(response => {
+      // const {data} = response;
+      this.setState({items : response[0]})
+    })
+    fetch("/api/bedoccupancy")
+    .then(response => response.json())
+    .then(response => {
+      // const{data} = response;
+      this.setState({bedsoccupy : response[0].occupied , bedsavai : response[0].available})
+      console.log(this.state.beds)
+    })
+  }
 
   render() {
     return (
@@ -67,14 +53,15 @@ class InventoryDetails extends React.Component {
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
-                Number of Covid Beds available:{this.state.beds.available.covid}
+                Number of Covid Beds available:
+                {this.state.bedsavai.covid}
               </span>
             </Col>
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of Covid Occupied:
-                {this.state.beds.occupied.covid}
+                {this.state.bedsoccupy.covid}
               </span>
             </Col>
           </Row>
@@ -82,7 +69,8 @@ class InventoryDetails extends React.Component {
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
-                Number of ICU Beds available:{this.state.beds.available.icu}
+                Number of ICU Beds available:
+                {this.state.bedsavai.icu}
               </span>
             </Col>
           </Row>
@@ -91,7 +79,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of ICU Beds Occupied:
-                {this.state.beds.available.icu}
+                {this.state.bedsoccupy.icu}
               </span>
             </Col>
           </Row>
@@ -100,7 +88,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of Non-Covid Beds available:
-                {this.state.beds.available.noncovid}
+                {this.state.bedsavai.noncovid}
               </span>
             </Col>
           </Row>
@@ -109,7 +97,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of Non-Covid Beds Occupied:{" "}
-                {this.state.beds.occupied.noncovid}
+                {this.state.bedsoccupy.noncovid}
               </span>
             </Col>
           </Row>
@@ -136,7 +124,7 @@ class InventoryDetails extends React.Component {
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
-                Number of PPE kits available:{this.state.inventoryarray.ppekits}
+                Number of PPE kits available:{this.state.items.ppekits}
               </span>
             </Col>
           </Row>
@@ -144,7 +132,7 @@ class InventoryDetails extends React.Component {
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
-                Number of masks available:{this.state.inventoryarray.masks}
+                Number of masks available:{this.state.items.masks}
               </span>
             </Col>
           </Row>{" "}
@@ -153,7 +141,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of saline bottles kits available:
-                {this.state.inventoryarray.salinebottles}
+                {this.state.items.salinebottles}
               </span>
             </Col>
           </Row>{" "}
@@ -162,7 +150,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of syringes available:
-                {this.state.inventoryarray.syringes}
+                {this.state.items.syringes}
               </span>
             </Col>
           </Row>
@@ -170,7 +158,7 @@ class InventoryDetails extends React.Component {
             <Col sm={12}>
               <span style={{ color: "#11999" }}>
                 {" "}
-                Number of gloves available:{this.state.inventoryarray.gloves}
+                Number of gloves available:{this.state.items.gloves}
               </span>
             </Col>
           </Row>{" "}
@@ -179,7 +167,7 @@ class InventoryDetails extends React.Component {
               <span style={{ color: "#11999" }}>
                 {" "}
                 Number of testing kits available:
-                {this.state.inventoryarray.testingkit}
+                {this.state.items.testingkit}
               </span>
             </Col>
           </Row>

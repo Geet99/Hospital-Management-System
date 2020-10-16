@@ -113,7 +113,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Emergency Contact Person :</b>{" "}
-              {/* {this.props.emername} */}
+              {this.props.emername}
             </span>
           </Col>
         </Row>
@@ -122,7 +122,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Emergency Contact Number :</b>{" "}
-              {/* {this.props.emer.name} */}
+              {this.props.emernum}
             </span>
           </Col>
         </Row>
