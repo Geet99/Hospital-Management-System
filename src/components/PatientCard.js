@@ -20,13 +20,13 @@ function PatientCard({ data }) {
           <strong style={{ color: "#212529" }}>{data.name}</strong>
         </Col>
         <Col sm={12}>
-          <span style={{ color: "#999" }}> Room number - {data.roomno}</span>
+          <span style={{ color: "#999" }}> Admitted on - {data.admittedon}</span>
         </Col>
       </Row>
       <Row>
-        <Col sm={12}>
+        {/* <Col sm={12}>
           <span style={{ color: "#999" }}> Covid - {data.covidstatus}</span>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

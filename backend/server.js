@@ -205,7 +205,7 @@ app.get("/patient/:id/discharge", function(req,res){
 })
 
 app.post("/patient/:id/discharge", function(req,res){
-    User.findByIdAndUpdate(req.params.id, {"forPatient.treatment.dischargedate" : req.body.date}, function(err, updtaedPatient){
+    User.findByIdAndUpdate(req.params.id, {"forPatient.treatment.dischargedate" : req.body.date}, function(err, updatedPatient){
         if(err)
             res.redirect("/api/patient/"+ req.params.id)
         else{
@@ -326,7 +326,7 @@ app.post("/patient/:id/update", function(req,res){
             history : req.body.patienthistory,
         }
     }
-    User.findByIdAndUpdate(req.params.id, newuser, function(err, updtaedPatient){
+    User.findByIdAndUpdate(req.params.id, newuser, function(err, updatedPatient){
         if(err)
             res.redirect("/api/patient/"+ req.params.id)
         else
@@ -339,7 +339,7 @@ app.get("/patient/:id", function(req,res){
         if(err)
             res.send("No such patient");
         else
-            res.render("home",{patient,patient});
+            res.render("home",{patient:patient});
     })
 })
 

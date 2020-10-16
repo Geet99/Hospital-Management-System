@@ -9,21 +9,21 @@ class InventoryDetails extends React.Component {
     this.state = {
       items : {},
       bedsoccupy : {},
-      bedsavai : {},
+      bedsavai : {}
     }
   }
 
   componentDidMount(){
+    //Api for inventory
     fetch("/api/inventory")
     .then(response => response.json())
     .then(response => {
-      // const {data} = response;
       this.setState({items : response[0]})
     })
+    //Api for bed occupancy
     fetch("/api/bedoccupancy")
     .then(response => response.json())
     .then(response => {
-      // const{data} = response;
       this.setState({bedsoccupy : response[0].occupied , bedsavai : response[0].available})
       console.log(this.state.beds)
     })
