@@ -53,6 +53,7 @@ class Home extends Component{
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >
+                    <form action="localhost:5000/signup/staff" method="POST">
                     <Form.Item
                         label="Username"
                         name="username"
@@ -78,6 +79,7 @@ class Home extends Component{
                     >
                         <Input.Password />
                     </Form.Item>
+                    </form>
 
                     <Form.Item {...tailLayout} name="remember" valuePropName="checked">
                         <Checkbox>Remember me</Checkbox>
@@ -101,10 +103,10 @@ class Home extends Component{
                 <br />
                 <Form>
                     <Form.Item {...tailLayout}>
-                        <Button href='/PatientSignUp' type="primary" m-2 htmlType="submit">
+                        <Button href='/signup/patient' type="primary" m-2 htmlType="submit">
                             Patient SignUp
                         </Button> {' '}
-                        <Button href='/StaffSignUp' type="primary" m-2 htmlType="submit">
+                        <Button href='/signup/staff' type="primary" m-2 htmlType="submit">
                             Staff SignUp
                         </Button>
                     </Form.Item>

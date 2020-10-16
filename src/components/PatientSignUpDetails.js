@@ -3,22 +3,9 @@ import "antd/dist/antd.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 class PatientSignUpDetails extends React.Component {
-  state = {
-    patientarray: {
-        name : "Ravi Prakash",
-        dob : "22.08.1999",
-        age : "34",
-        gender : "Male",
-        bloodgroup : "B+",
-        phone : 1234567890,
-        weight : 65,
-        insuranceno : "23453245",
-        emergencycontactname : "Rajeev Prakash",
-        emergencycontactphone : 3446667488,
-        allergies : "Penicilin",
-        history : "Heart By-pass surgery in 2015",
-    }
-  };
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
@@ -39,14 +26,14 @@ class PatientSignUpDetails extends React.Component {
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              <b>Name :</b>{" "}{this.state.patientarray.name}
+              <b>Name :</b>{" "}{this.props.name}
             </span>
           </Col>
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Date of Birth :</b>{" "}
-              {this.state.patientarray.dob}
+              {this.props.dob}
             </span>
           </Col>
         </Row>
@@ -54,7 +41,7 @@ class PatientSignUpDetails extends React.Component {
           <Col sm={12}>
             <span style={{ color: "#11999" }}>
               {" "}
-              <b>Age :</b>{" "}{this.state.patientarray.age}
+              <b>Age :</b>{" "}{this.props.age}
             </span>
           </Col>
         </Row>
@@ -63,7 +50,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Gender :</b>{" "}
-              {this.state.patientarray.gender}
+              {this.props.gender}
             </span>
           </Col>
         </Row>
@@ -72,7 +59,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Blood Group :</b>{" "}
-              {this.state.patientarray.bloodgroup}
+              {this.props.bloodgroup}
             </span>
           </Col>
         </Row>
@@ -81,7 +68,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Weight :</b>{" "}
-              {this.state.patientarray.weight}
+              {this.props.weight}
             </span>
           </Col>
         </Row>
@@ -90,7 +77,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Contact Number :</b>{" "}
-              {this.state.patientarray.phone}
+              {this.props.phone}
             </span>
           </Col>
         </Row>
@@ -99,7 +86,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Insurance Number :</b>{" "}
-              {this.state.patientarray.insuranceno}
+              {this.props.insuranceno}
             </span>
           </Col>
         </Row>
@@ -108,7 +95,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Allergies :</b>{" "}
-              {this.state.patientarray.allergies}
+              {this.props.allergies}
             </span>
           </Col>
         </Row>
@@ -117,7 +104,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Medical History :</b>{" "}
-              {this.state.patientarray.history}
+              {this.props.history}
             </span>
           </Col>
         </Row>
@@ -126,7 +113,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Emergency Contact Person :</b>{" "}
-              {this.state.patientarray.emergencycontactname}
+              {/* {this.props.emername} */}
             </span>
           </Col>
         </Row>
@@ -135,7 +122,7 @@ class PatientSignUpDetails extends React.Component {
             <span style={{ color: "#11999" }}>
               {" "}
               <b>Emergency Contact Number :</b>{" "}
-              {this.state.patientarray.emergencycontactphone}
+              {/* {this.props.emer.name} */}
             </span>
           </Col>
         </Row>
