@@ -16,8 +16,6 @@ var express               = require("express"),
 var mongodburl = "mongodb+srv://covid_cluster_user:randomlygenerated@covidpatients.cf3et.mongodb.net/covidPatients?retryWrites=true&w=majority"
 mongoose.connect(mongodburl, { useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
-var cors = require('cors')
-app.use(cors())
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -634,7 +632,6 @@ app.get("/api/allpatients", function(req,res){
                         noncovidpatients.push(patient);
                     }
                 }
-                // covidpatients.push(patient);
             })
             var patients = {
                 covidpatients,

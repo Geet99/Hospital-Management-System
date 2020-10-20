@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-function PatientCard({ data }) {
+function PatientCard(props) {
   return (
     <Container
       style={{
@@ -17,10 +17,10 @@ function PatientCard({ data }) {
     >
       <Row>
         <Col sm={12}>
-          <strong style={{ color: "#212529" }}>{data.name}</strong>
+          <strong style={{ color: "#212529" }}>Patient Name: </strong>{props.name}
         </Col>
         <Col sm={12}>
-          <span style={{ color: "#999" }}> Admitted on - {data.admittedon}</span>
+          <span style={{ color: "#999" }}> Admitted on - {props.admittedon==null?"Not yet admitted":props.admittedon}</span>
         </Col>
       </Row>
       <Row>
