@@ -34,12 +34,12 @@ Node.js is a free, open-sourced JavaScript run-time environment that lets develo
 1. Installation of all the packages need to be done before hosting the Web App. Execute the following commands:
     1. `mkdir HMS && cd HMS`
     2. `git clone https://github.com/Geet99/Hospital-Management-System.git`
-    3. `cd Hospital-Management-System.git`
+    3. `cd Hospital-Management-System`
     4. `npm install`
     5. `cd backend && npm install`
     6. `node server.js`
     6. Open another terminal
-    7. `cd Hospital-Management-System.git`
+    7. `cd Hospital-Management-System`
     8. `npm start`
     
 2. The react app has been hosted on port : 3000 and the server on port : 5000 of our localhost. 
